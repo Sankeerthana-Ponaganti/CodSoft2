@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Rock Paper Scissors</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    h1 {
+        margin-top: 130px;
+        margin-bottom: 50px;  /* Move the heading down */
+    }
+
+    .choices {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;  /* Adjust margin as needed */
+    }
+
+    .choice {
+        text-align: center;
+        margin: 30px;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+    }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="choices">
+            <div class="choice">
+                <a href="{% url 'play' 'rock' %}"><img src="{% static 'rock.jpg' %}" alt="Rock"></a>
+            </div>
+            <div class="choice">
+                <a href="{% url 'play' 'paper' %}"><img src="{% static 'paper.jpg' %}" alt="Paper"></a>
+            </div>
+            <div class="choice">
+                <a href="{% url 'play' 'scissors' %}"><img src="{% static 'scissors.jpg' %}" alt="Scissors"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

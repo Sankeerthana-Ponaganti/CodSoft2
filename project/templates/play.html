@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Rock Paper Scissors</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;  /* Center text within .game-container */
+    }
+
+    h1 {
+        margin-top: 20px;  /* Adjust margin as needed */
+    }
+
+    .choices {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;  /* Adjust margin as needed */
+    }
+
+    .choice {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .winner-message {
+        margin-bottom: 20px;  /* Adjust margin as needed */
+        font-size: 18px;
+        color: red; 
+        text-align: center;
+    }
+    .button {
+    background-color: bisque;
+    color: black;
+    padding: 15px 200px; /* Increase the padding to make the button larger */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px; /* Increase the font size to make the text larger */
+}
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="choices">
+          <b> <div class="winner-message">
+                {% if winner %}
+                    {{ winner }} is the winner!
+                {% else %}
+                    It's a tie!
+                {% endif %}
+            </div>
+        </b> 
+            <div class="choice">
+                <h2>You chose</h2>
+                <img src="{% static user_choice|lower %}.jpg" alt="{{ user_choice }}">
+            </div>
+            <div class="choice">
+                <h2>Computer chose</h2>
+                <img src="{% static computer_choice|lower %}.jpg" alt="{{ computer_choice }}">
+            </div>
+            <div class="container text-center mt-4" style="padding-top: 20px;">
+                <a href="{% url 'home' %}" class="button">BACK</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
